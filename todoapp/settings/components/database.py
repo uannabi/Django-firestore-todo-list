@@ -8,15 +8,8 @@ FIRESTORE = config('FIRESTORE', cast=bool, default=False)
 if FIRESTORE:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DB_NAME', cast=str),
-            'USER': config('DB_USER', cast=str),
-            'PASSWORD': config('DB_PASSWORD', cast=str),
-            'HOST': config('DB_HOST', cast=str),
-            'PORT': config('DB_PORT', cast=str),
-            'TEST': {
-                'NAME': config('TEST_DB_NAME', 'todotest'),
-            },
+            'FIREBASE_ORM_CERTIFICATE': config('KEY_PATH', cast=str),
+            'FIREBASE_ORM_BUCKET_NAME': config('BUCKET_NAME',cast=str),
         }
     }
 else:
